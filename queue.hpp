@@ -183,15 +183,12 @@ Queue<T>::~Queue()
 template<typename T>
 auto operator>>(std::istream & stream, Queue<T>& q) -> std::istream &
 {
-	if (q.empty()) {
-		return stream;
+	<T> p = 0, value = 0;
+	stream >> p;
+	for (unsigned i = 0; i < p; i++) {
+		stream >> value;
+		this -> push(value); 
 	}
-	Node<T> *p = q.front;
-	for (; p != q.back;) {
-		stream << p->data << " ";
-		p = p->next;
-	}
-	stream << p->data << std::endl;
 	return stream;
 }
 
@@ -199,10 +196,10 @@ template<typename T>
 auto operator<<(std::ostream & stream, Queue<T>& q) -> std::ostream &
 {
 	if (q.empty()) {
-		stream << "Очередь пуста" << std::endl;
 		return stream;
 	}
 	Node<T> *p = q.front;
+	stream << q.size() << " ";
 	for (; p != q.back;) {
 		stream << p->data << " ";
 		p = p->next;
