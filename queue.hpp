@@ -21,7 +21,7 @@ public:
 
 	auto swap(Queue&) -> void;
 
-	auto operator=(const Queue&) -> &Queue;
+	auto operator=(const Queue&) -> Queue&;
 
 	auto empty() const -> bool;
 
@@ -81,7 +81,7 @@ auto Queue<T>::swap(Queue & q) -> void
 }
 
 template<typename T>
-auto Queue<T>::operator=(const Queue & q) -> &Queue
+auto Queue<T>::operator=(const Queue & q) -> Queue&
 {
 	while (front != nullptr) {
 		Node<int>* p = front;
