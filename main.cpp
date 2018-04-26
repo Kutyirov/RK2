@@ -31,8 +31,8 @@ int main() {
   
   std::cout << (q4 == q3) << std::endl; 
 
-  std::cout << q4.front() << std::endl;
-  std::cout << q4.back() << std::endl;
+  std::cout << q4.front_() << std::endl;
+  std::cout << q4.back_() << std::endl;
   
   q4.pop();
   std::cout << q4 << std::endl;
