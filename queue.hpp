@@ -191,7 +191,7 @@ auto operator>>(std::istream & stream, Queue<T>& q) -> std::istream &
 		stream << p->data << " ";
 		p = p->next;
 	}
-	stream << p->data << endl;
+	stream << p->data << std::endl;
 	return stream;
 }
 
