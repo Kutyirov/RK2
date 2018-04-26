@@ -37,5 +37,5 @@ int main() {
   q4.pop();
   std::cout << q4 << std::endl;
 
-  q4.front() = 6;
+  q4.front_() = 6;
 }
