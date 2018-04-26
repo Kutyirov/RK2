@@ -183,7 +183,7 @@ Queue<T>::~Queue()
 template<typename T>
 auto operator>>(std::istream & stream, Queue<T>& q) -> std::istream &
 {
-	for (unsigned i = 0; i < p; i++) {
+	for (unsigned i = 0; i < q.size(); i++) {
 	}
 	return stream;
 }
