@@ -21,7 +21,7 @@ public:
 
 	auto swap(Queue&) -> void;
 
-	auto operator=(const Queue&);
+	auto operator=(const Queue&) -> &Queue;
 
 	auto empty() const -> bool;
 
@@ -81,7 +81,7 @@ auto Queue<T>::swap(Queue & q) -> void
 }
 
 template<typename T>
-auto Queue<T>::operator=(const Queue & q)
+auto Queue<T>::operator=(const Queue & q) -> &Queue
 {
 	while (front != nullptr) {
 		Node<int>* p = front;
@@ -184,7 +184,6 @@ template<typename T>
 auto operator>>(std::istream & stream, Queue<T>& q) -> std::istream &
 {
 	if (q.empty()) {
-		stream << "Очередь пуста" << endl;
 		return stream;
 	}
 	Node<T> *p = q.front;
