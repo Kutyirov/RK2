@@ -8,34 +8,34 @@ int main() {
 
   Queue <int> q3{q2};
 
-  cout << q2 << endl;
-  cout << q3 << endl;
+  std::cout << q2 << std::endl;
+  std::cout << q3 << std::endl;
 
   q1.swap(q3);
-  cout << q1 << endl;
+  std::cout << q1 << std::endl;
 
-  cout << boolalpha
+  std::cout << std::boolalpha
        << q3.empty();
  
-  cout << q1.size() << endl;
+  std::cout << q1.size() << std::endl;
 
   q3.push(5);
-  cout << q3 << endl;
+  std::cout << q3 << std::endl;
    
-  ofstream output{ "queue.bin" };
+  std::ofstream output{ "queue.bin" };
   output << q3;
   
   Queue <int> q4;
-  ifstream input{ "queue.bin" };
+  std::ifstream input{ "queue.bin" };
   input >> q4;
   
-  cout << (q4 == q3) << endl; 
+  std::cout << (q4 == q3) << std::endl; 
 
-  cout << q4.front() << endl;
-  cout << q4.back() << endl;
+  std::cout << q4.front() << std::endl;
+  std::cout << q4.back() << std::endl;
   
   q4.pop();
-  cout << q4 << endl;
+  std::cout << q4 << std::endl;
 
   q4.front() = 6;
 }
