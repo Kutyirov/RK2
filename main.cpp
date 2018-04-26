@@ -21,13 +21,8 @@ int main() {
 
   q3.push(5);
   std::cout << q3 << std::endl;
-   
-  std::ofstream output{ "queue.bin" };
-  output << q3;
   
-  Queue <int> q4;
-  std::ifstream input{ "queue.bin" };
-  input >> q4;
+  Queue <int> q4{q3};
   
   std::cout << (q4 == q3) << std::endl; 
 
