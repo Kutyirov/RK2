@@ -38,9 +38,23 @@ public:
 	bool operator==(const Queue&);
 
 	
-	template <typename T1> friend auto operator<<(std::ostream&, Queue<T1>&)->std::ostream&;
-
-	template <typename T1> friend auto operator>>(std::istream&, Queue<T1>&)->std::istream&;
+	friend auto operator<<(std::ostream& output, Queue<T>& q)->std::ostream&
+   	{
+        	for (Node<T> * p = q.list->first; p != nullptr; p = p->next) {
+            		output << p->data;
+            		if (p->next != nullptr) {
+                		output << " ";
+            		}
+            	}
+            	return output;
+        }
+        
+	friend auto operator >> (std::istream& input, Queue<T>& q)->std::istream& {
+        	T value;
+                input >> value;
+                q.push(value);
+                return input;
+        }
 
 	~Queue();
 
@@ -178,29 +192,5 @@ Queue<T>::~Queue()
 		front = front->next;
 		delete p;
 	}
-}
-
-template<typename T>
-auto operator>>(std::istream & stream, Queue<T>& q) -> std::istream &
-{
-	for (unsigned i = 0; i < q.size(); i++) {
-	}
-	return stream;
-}
-
-template<typename T>
-auto operator<<(std::ostream & stream, Queue<T>& q) -> std::ostream &
-{
-	if (q.empty()) {
-		return stream;
-	}
-	Node<T> *p = q.front;
-	stream << q.size() << " ";
-	for (; p != q.back;) {
-		stream << p->data << " ";
-		p = p->next;
-	}
-	stream << p->data << std::endl;
-	return stream;
 }
 
