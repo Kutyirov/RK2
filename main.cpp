@@ -26,7 +26,7 @@ int main() {
   
   std::ofstream output{ "queue.bin" };
   output << q3;
-  Queue q4;
+  Queue <int> q4;
   std::ifstream input{ "queue.bin" };
   input >> q4;
   
