@@ -40,7 +40,7 @@ public:
 	
 	friend auto operator<<(std::ostream& output, Queue<T>& q)->std::ostream&
    	{
-        	for (Node<T> * p = q.list->first; p != nullptr; p = p->next) {
+        	for (Node<T> * p = q.front; p != nullptr; p = p->next) {
             		output << p->data;
             		if (p->next != nullptr) {
                 		output << " ";
