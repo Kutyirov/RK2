@@ -24,10 +24,10 @@ int main() {
   q3.push(5);
   std::cout << q3 << std::endl;
   
-  ofstream output{ "queue.bin" };
+  std::ofstream output{ "queue.bin" };
   output << q3;
   Queue q4;
-  ifstream input{ "queue.bin" };
+  std::ifstream input{ "queue.bin" };
   input >> q4;
   
   std::cout << (q4 == q3) << std::endl; 
